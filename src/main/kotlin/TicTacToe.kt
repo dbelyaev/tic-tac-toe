@@ -17,6 +17,9 @@ class TicTacToe {
         }
 
     fun start() {
+        println("Welcome to simple Tic-Tac-Toe!")
+        println("Each player input coordinates until WIN or DRAW.")
+        println()
         drawField()
         this.state = State.ASK_INPUT_PLAYER
     }
@@ -43,6 +46,7 @@ class TicTacToe {
     }
 
     private fun askInputPlayer(player: Player) {
+        println("Player ${player.char} enter coordinates (row then column, space separated:")
         while (true) {
             val input = readln().split(' ')
             when {
@@ -103,14 +107,15 @@ class TicTacToe {
     }
 
     private fun drawField() {
-        println("---------")
+        println("  | 1 2 3  ") // print header
+        println("-----------")
         for (i in 0..2) {
-            print("| ")
+            print("${i + 1} | ")
             for (j in 0..2) {
                 print("${field[i][j]} ")
             }
             println("|")
         }
-        println("---------")
+        println("-----------")
     }
 }
